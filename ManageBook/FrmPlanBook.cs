@@ -201,5 +201,10 @@ namespace ManageBook
             btnOK.Text = "确认修改";
             
         }
+
+        private void cmbSchoolTerm_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            MessageBox.Show(cmbSchoolTerm.SelectedIndex.ToString());
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace ManageBook.DAL
         {
             SqlConnection conn = new SqlConnection(DBHelpers.Connection);
             conn.Open();
-            string sql = "SELECT SchoolTerm.TermSimple as '学年学期', CollegeInfo.CollegeName as '学院名称',MajorInfo.MajorSimple as '专业简称',StudentClass.ClassName as '班级', Course.CourseType as '课程类型',PlanBook.CourseName as '课程名称',PlanBook.BookName as '教材名称', PlanBook.ISBN as 'ISBN码', PlanBook.Author as '作者', PlanBook.Publish as '出版社', PlanBook.Price as '价格', PlanBook.TeacherBookNum as '教师用书数', PlanBook.StudentBookNum as '学生用书数',PlanBook.BookTotalNum as '总共用书数' FROM PlanBook INNER JOIN Course ON PlanBook.CourseID = Course.CourseID INNER JOIN CollegeInfo ON PlanBook.CollegeID = CollegeInfo.CollegeID INNER JOIN MajorInfo ON PlanBook.MajorInfoID = MajorInfo.MajorInfoID INNER JOIN SchoolTerm ON PlanBook.SchoolTermID = SchoolTerm.SchoolTermID INNER JOIN StudentClass ON PlanBook.StudentClassID = StudentClass.StudentClassID";
+            string sql = "SELECT SchoolTerm.TermName as '学年学期', CollegeInfo.CollegeName as '学院名称',MajorInfo.MajorSimple as '专业简称',StudentClass.ClassName as '班级', Course.CourseType as '课程类型',PlanBook.CourseName as '课程名称',PlanBook.BookName as '教材名称', PlanBook.ISBN as 'ISBN码', PlanBook.Author as '作者', PlanBook.Publish as '出版社', PlanBook.Price as '价格', PlanBook.TeacherBookNum as '教师用书数', PlanBook.StudentBookNum as '学生用书数',PlanBook.BookTotalNum as '总共用书数' FROM PlanBook INNER JOIN Course ON PlanBook.CourseID = Course.CourseID INNER JOIN CollegeInfo ON PlanBook.CollegeID = CollegeInfo.CollegeID INNER JOIN MajorInfo ON PlanBook.MajorInfoID = MajorInfo.MajorInfoID INNER JOIN SchoolTerm ON PlanBook.SchoolTermID = SchoolTerm.SchoolTermID INNER JOIN StudentClass ON PlanBook.StudentClassID = StudentClass.StudentClassID";
             SqlCommand scm = new SqlCommand(sql, conn);
             SqlDataAdapter sda = new SqlDataAdapter();
             sda.SelectCommand = scm;
@@ -65,7 +65,7 @@ namespace ManageBook.DAL
                 conn.Close();
             }
         }
-        public void UpdatePlanBook(PlanBook plan, string isbn)   //删除预定教材
+        public void UpdatePlanBook(PlanBook plan, string isbn)   //修改预定教材
         {
             using (SqlConnection conn = new SqlConnection(DBHelpers.Connection))
             {

@@ -99,6 +99,7 @@
             this.cmbSchoolTerm.Size = new System.Drawing.Size(170, 24);
             this.cmbSchoolTerm.TabIndex = 3;
             this.cmbSchoolTerm.Text = "——请选择学期——";
+            this.cmbSchoolTerm.SelectionChangeCommitted += new System.EventHandler(this.cmbSchoolTerm_SelectionChangeCommitted);
             // 
             // cmbStudentClass
             // 
